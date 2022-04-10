@@ -35,6 +35,7 @@ jobs:
       - name: Test
         shell: bash
         run: |
+          ls
           mkdir built && cd built
           cmake ..
           cmake --build .
