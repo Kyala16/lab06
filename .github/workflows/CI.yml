@@ -49,7 +49,3 @@ jobs:
         with:
           github-token: ${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}
         
-      - name: npm install, make test-coverage
-        run: |
-          npm install
-          make test-coverage
