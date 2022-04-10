@@ -32,12 +32,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
+      - name: prepare environment
+        run:  sudo apt install git &&
+              git submodule update --init
+      
       - name: Test
         shell: bash
         run: |
-          ls
-          cd gtest
-          ls
           mkdir built && cd built
           cmake ..
           cmake --build .
