@@ -36,7 +36,8 @@ jobs:
         shell: bash
         run: |
           ls
-          cd gtest && ls
+          cd gtest
+          ls
           mkdir built && cd built
           cmake ..
           cmake --build .
