@@ -21,7 +21,8 @@ jobs:
       - name: Build banking_lib
         shell: bash
         run: |
-          cd banking && cd built
+          cd banking
+          mkdir built && cd built
           cmake ..
           cmake --build .
           
@@ -34,6 +35,8 @@ jobs:
       - name: Test
         shell: bash
         run: |
-          cd built
+          mkdir built && cd built
+          cmake ..
+          cmake --build .
           ./testBanking
 
