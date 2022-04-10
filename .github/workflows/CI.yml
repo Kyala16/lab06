@@ -47,5 +47,5 @@ jobs:
       - name: Coveralls GitHub Action
         uses: coverallsapp/github-action@1.1.3
         with:
-          github-token: ${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}
-        
+          github-token: ${{ secret.github_token }}
+          path-to-lcov: ./output/coverage/icov.info
