@@ -40,7 +40,7 @@ jobs:
       - name: Test
         run: |
           mkdir built && cd built
-          CXX=g++-6 cmake -DCOVERAGE=1 .
+          CXX=g++-6 cmake -DCOVERAGE=1 ..
           
 
       - name: Coveralls GitHub Action
