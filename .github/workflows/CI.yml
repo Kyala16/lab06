@@ -40,7 +40,7 @@ jobs:
       - name: Test
         run: |
           mkdir built && cd built
-          CXX=/usr/bin/g++-6 cmake -DCOVERAGE=1 .
+          CXX=g++-6 cmake -DCOVERAGE=1 .
           cmake --build .
           ./testBanking
           lcov -t "banking" -o banking.info -c -d .
