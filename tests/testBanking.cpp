@@ -20,17 +20,17 @@ struct MockTrans : public Transaction{
 };
 
 TEST(Account, AccMockTest){
-    MockAcc BankAccount2(2, 100000);
-    EXPECT_CALL(BankAccount2, Lock()).Times(1);
-    EXPECT_CALL(BankAccount2, GetBalance()).Times(2);
-    EXPECT_CALL(BankAccount2, ChangeBalance(testing::_)).Times(2);
-    EXPECT_CALL(BankAccount2, Unlock()).Times(1);
-    BankAccount2.Lock();
-    BankAccount2.GetBalance();
-    BankAccount2.ChangeBalance(100000);
-    BankAccount2.GetBalance();
-    BankAccount2.Unlock();
-    BankAccount2.ChangeBalance(1000);
+    MockAcc Bank(2, 100000);
+    EXPECT_CALL(Bank, Lock()).Times(1);
+    EXPECT_CALL(Bank, GetBalance()).Times(2);
+    EXPECT_CALL(Bank, ChangeBalance(testing::_)).Times(2);
+    EXPECT_CALL(Bank, Unlock()).Times(1);
+    Bank.Lock();
+    Bank.GetBalance();
+    Bank.ChangeBalance(100000);
+    Bank.GetBalance();
+    Bank.Unlock();
+    Bank.ChangeBalance(1000);
 }
 
 TEST(Account, Lock){
@@ -71,54 +71,23 @@ TEST(Account, ChangeBalance){
 	car_bank.Unlock();
 }
 
-TEST(Transaction, TransMockTest1){
+TEST(Transaction, TransMockTest){
     MockTrans Acc_Trans1;
-    MockAcc Human1(1, 10000);
-    MockAcc Human2(2, 230000);
+    MockAcc son(1, 10000);
+    MockAcc dad(2, 230000);
     MockAcc Car_Shop(3, 8000000);
     MockAcc Organisation(4, 5500);
     EXPECT_CALL(Acc_Trans1, set_fee(testing::_)).Times(1);
     EXPECT_CALL(Acc_Trans1, Make(testing::_, testing::_, testing::_)).Times(2);
     EXPECT_CALL(Acc_Trans1, fee()).Times(1);
-    EXPECT_CALL(Human1, GetBalance()).Times(1);
-    EXPECT_CALL(Human2, GetBalance()).Times(1);
+    EXPECT_CALL(son, GetBalance()).Times(1);
+    EXPECT_CALL(dad, GetBalance()).Times(1);
     Acc_Trans1.set_fee(500);
-    Acc_Trans1.Make(Human1, Human2, 2000);
+    Acc_Trans1.Make(son, dad, 2000);
     Acc_Trans1.fee();
-    Human1.GetBalance();
-    Human2.GetBalance();
-    Acc_Trans1.Make(Organisation, Human2, 20000);
-}
-
-TEST(Transaction, TransMockTest2){
-    MockTrans Acc_Trans2;
-    MockAcc Human1(1, 10000);
-    MockAcc Human2(2, 230000);
-    MockAcc Car_Shop(3, 8000000);
-    MockAcc Organisation(4, 5500);
-    EXPECT_CALL(Acc_Trans2, Make(testing::_, testing::_, testing::_)).Times(3);
-    Acc_Trans2.Make(Car_Shop, Car_Shop, 100000);
-    Acc_Trans2.Make(Car_Shop, Organisation, -5600);
-    Acc_Trans2.Make(Human2, Car_Shop, 55);
-}
-
-TEST(Transaction, TransMockTest1){
-    MockTrans Acc_Trans1;
-    MockAcc Human1(1, 10000);
-    MockAcc Human2(2, 230000);
-    MockAcc Car_Shop(3, 8000000);
-    MockAcc Organisation(4, 5500);
-    EXPECT_CALL(Acc_Trans1, set_fee(testing::_)).Times(1);
-    EXPECT_CALL(Acc_Trans1, Make(testing::_, testing::_, testing::_)).Times(2);
-    EXPECT_CALL(Acc_Trans1, fee()).Times(1);
-    EXPECT_CALL(Human1, GetBalance()).Times(1);
-    EXPECT_CALL(Human2, GetBalance()).Times(1);
-    Acc_Trans1.set_fee(500);
-    Acc_Trans1.Make(Human1, Human2, 2000);
-    Acc_Trans1.fee();
-    Human1.GetBalance();
-    Human2.GetBalance();
-    Acc_Trans1.Make(Organisation, Human2, 20000);
+    son.GetBalance();
+    dad.GetBalance();
+    Acc_Trans1.Make(Organisation, dad, 20000);
 }
 
 TEST(Transaction, Throws){
