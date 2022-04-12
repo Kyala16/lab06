@@ -51,3 +51,4 @@ jobs:
         with:
           github-token: ${ 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 }
           path-to-lcov: ./built/lcov.info
+          coveralls-endpoint: https://coveralls.io
