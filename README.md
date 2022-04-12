@@ -3,7 +3,7 @@
 Status of Last Build:<br>
 <img src="https://github.com/Kyala16/lab06/workflows/CI/badge.svg?branch=main"><br>
 
-[![Coverage Status](https://coveralls.io/repos/github/Kyala16/lab06/badge.svg?branch=main)](https://coveralls.io/github/Kyala16/lab06?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/Kyala16/lab06/badge.svg)](https://coveralls.io/github/Kyala16/lab06)
 
 ## build CMake for bankind lib
 
