@@ -49,6 +49,6 @@ jobs:
       - name: Coveralls GitHub Action
         uses: coverallsapp/github-action@master
         with:
-          github-token: ${ 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 }
+          github-token: ${ { secrets.GITHUB_TOKEN } }
           path-to-lcov: ./built/lcov.info
           coveralls-endpoint: https://coveralls.io
