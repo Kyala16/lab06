@@ -44,10 +44,10 @@ jobs:
           CXX=/usr/bin/g++-7 cmake -DCOVERAGE=1 ..
           cmake --build .
           ./testBanking
-          lcov -t "banking" -o banking.info -c -d .
+          lcov -t "banking" -o lcov.info -c -d .
 
       - name: Coveralls GitHub Action
         uses: coverallsapp/github-action@master
         with:
           github-token: ${ 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 }
-          path-to-lcov: ./output/coverage/lcov.info
+          path-to-lcov: ./built/lcov.info
